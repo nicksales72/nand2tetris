@@ -11,5 +11,19 @@ CHIP FullAdder {
         carry;   // Left bit of a + b + c
 
     PARTS:
-    //// Replace this comment with your code.
+    HalfAdder(a=a, b=c, sum=x1, carry=y1);
+    HalfAdder(a=b, b=x1, sum=sum, carry=y2);
+    Or(a=y1, b=y2, out=carry);
 }
+
+/**
+ *| a | b | c |X = H_{sum}(a,c)|Y = H_{car}(a,c)|X' = H_{sum}(b,X)|Y' = H_{car}(b,X)|Or(Y,Y')|
+ *| 0 | 0 | 0 |        0       |        0       |         0       |         0       |    0   |
+ *| 0 | 0 | 1 |        1       |        0       |         1       |         0       |    0   |
+ *| 0 | 1 | 0 |        0       |        0       |         1       |         0       |    0   |
+ *| 0 | 1 | 1 |        1       |        0       |         0       |         1       |    1   |
+ *| 1 | 0 | 0 |        1       |        0       |         1       |         0       |    0   |
+ *| 1 | 0 | 1 |        0       |        1       |         0       |         0       |    1   |
+ *| 1 | 1 | 0 |        1       |        0       |         0       |         1       |    1   |
+ *| 1 | 1 | 1 |        0       |        1       |         1       |         0       |    1   |
+ */
