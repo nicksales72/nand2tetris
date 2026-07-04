@@ -7,6 +7,5 @@ Projects from the book The Elements of Computing Systems (nand2tetris).
 - And the following basic (de)multiplexors: Mux, Mux16, Mux4Way16, Mux8Way16 DMux, DMux4Way DMux8Way.
 
 ### Project 2 (Current)
-- Project 2 is the implementation of basic chips to perform boolean arithmetic.
-- Finished: HalfAdder, FullAdder, Add16, Inc16.
-- Not Finished: ALU.
+- Project 2 is the implementation of basic chips to perform boolean arithmetic and ALU.
+- Finished: HalfAdder, FullAdder, Add16, Inc16, ALU.

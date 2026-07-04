@@ -41,5 +41,25 @@ CHIP ALU {
         ng;      // if (out < 0)  equals 1, else 0
 
     PARTS:
-    //// Replace this comment with your code.
+    Mux16(a=x, b[0..15]=false, sel=zx, out=zerox); // if (zx == 1) then we choose b = 0; if (zx == 0) then we choose a = x
+    Mux16(a=y, b[0..15]=false, sel=zy, out=zeroy); // if (zy == 1) then we choose b = 0; if (zy == 0) then we choose a = y
+
+    Not16(in=zerox, out=notzerox); // Precompute !zero_x
+    Not16(in=zeroy, out=notzeroy); // Precompute !zero_y
+    Mux16(a=zerox, b=notzerox, sel=nx, out=newx); // if (nx == 1) then we choose b = !x; if (nx == 0) then we choose a = x
+    Mux16(a=zeroy, b=notzeroy, sel=ny, out=newy); // if (ny == 1) then we choose b = !y; if (ny == 0) then we choose a = y
+
+    Add16(a=newx, b=newy, out=xplusy); // Precompute x + y
+    And16(a=newx, b=newy, out=xandy); // Precompute x & y
+    Mux16(a=xandy, b=xplusy, sel=f, out=xfy); // if (f == 1) then we choose x + y; if (f == 0) then we choose x & y
+
+    Not16(in=xfy, out=notxfy); // Precompute not out
+    Mux16(a=xfy, b=notxfy, sel=no, out[0..7]=outfirstbyte, out[8..15]=outsecondbyte, out[15]=outleadingbit, out=out); // if (no == 1) then we choose !out; if (no == 0) then we choose out
+
+    Or8Way(in=outfirstbyte, out=or1); // check if first byte of out is 0
+    Or8Way(in=outsecondbyte, out=or2); // check if second byte of out is 0 
+    Or(a=or1, b=or2, out=tempzr); // 0 if out == 0; else 1
+    Not(in=tempzr, out=zr); // flip to 1 if out == 0; else 0
+
+    Xor(a=outleadingbit, b=false, out=ng); // leading 1 means negative in twos complement
 }
