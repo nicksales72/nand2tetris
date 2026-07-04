@@ -11,5 +11,21 @@ CHIP Inc16 {
     OUT out[16];
 
     PARTS:
-    //// Replace this comment with your code.
+    // in + 0000000000000001; 0000000000000001 is false false false ... false true
+    FullAdder(a=in[0], b=true, c=false, carry=car0, sum=out[0]); 
+    FullAdder(a=in[1], b=false, c=car0, carry=car1, sum=out[1]); 
+    FullAdder(a=in[2], b=false, c=car1, carry=car2, sum=out[2]); 
+    FullAdder(a=in[3], b=false, c=car2, carry=car3, sum=out[3]); 
+    FullAdder(a=in[4], b=false, c=car3, carry=car4, sum=out[4]); 
+    FullAdder(a=in[5], b=false, c=car4, carry=car5, sum=out[5]); 
+    FullAdder(a=in[6], b=false, c=car5, carry=car6, sum=out[6]); 
+    FullAdder(a=in[7], b=false, c=car6, carry=car7, sum=out[7]); 
+    FullAdder(a=in[8], b=false, c=car7, carry=car8, sum=out[8]); 
+    FullAdder(a=in[9], b=false, c=car8, carry=car9, sum=out[9]); 
+    FullAdder(a=in[10], b=false, c=car9, carry=car10, sum=out[10]); 
+    FullAdder(a=in[11], b=false, c=car10, carry=car11, sum=out[11]); 
+    FullAdder(a=in[12], b=false, c=car11, carry=car12, sum=out[12]); 
+    FullAdder(a=in[13], b=false, c=car12, carry=car13, sum=out[13]); 
+    FullAdder(a=in[14], b=false, c=car13, carry=car14, sum=out[14]); 
+    FullAdder(a=in[15], b=false, c=car14, carry=car15, sum=out[15]); // overflow bit (car15) ignored
 }
