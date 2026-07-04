@@ -8,5 +8,5 @@ Projects from the book The Elements of Computing Systems (nand2tetris).
 
 ### Project 2 (Current)
 - Project 2 is the implementation of basic chips to perform boolean arithmetic.
-- Finished: 
-- Not Finished: ALU, HalfAdder, FullAdder, Add16, Inc16.
+- Finished: HalfAdder
+- Not Finished: ALU, FullAdder, Add16, Inc16.
