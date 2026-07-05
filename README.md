@@ -11,4 +11,6 @@ Projects from the book The Elements of Computing Systems (nand2tetris).
 - Finished: HalfAdder, FullAdder, Add16, Inc16, ALU.
 
 ### Project 3 (Current)
-- 
+- Project 3 is the implementation of bits, registers, and ram to store data, as well as the program counter.
+- Finished: Bit.
+- Not Finished: PC, RAM64, RAM8, Register, RAM16K, RAM4K, RAM512.
