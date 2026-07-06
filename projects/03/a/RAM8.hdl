@@ -13,5 +13,17 @@ CHIP RAM8 {
     OUT out[16];
 
     PARTS:
-    //// Replace this comment with your code.
+    // A = 000; B = 001; C = 010; D = 011; E = 100; F = 101; G = 110; H = 111
+    DMux8Way(in=load, sel=address, a=loadA, b=loadB, c=loadC, d=loadD,
+                                   e=loadE, f=loadF, g=loadG, h=loadH); // loadAddr = load if address = Addr; else loadAddr = 0
+    Register(in=in, load=loadA, out=regA); // addr: 000
+    Register(in=in, load=loadB, out=regB); // addr: 001
+    Register(in=in, load=loadC, out=regC); // addr: 010
+    Register(in=in, load=loadD, out=regD); // addr: 011
+    Register(in=in, load=loadE, out=regE); // addr: 100
+    Register(in=in, load=loadF, out=regF); // addr: 101
+    Register(in=in, load=loadG, out=regG); // addr: 110
+    Register(in=in, load=loadH, out=regH); // addr: 111
+    Mux8Way16(a=regA, b=regB, c=regC, d=regD, e=regE, 
+            f=regF, g=regG, h=regH, sel=address, out=out); // send value of the register at address to out
 }
