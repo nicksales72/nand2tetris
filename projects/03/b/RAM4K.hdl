@@ -14,9 +14,9 @@ CHIP RAM4K {
 
     PARTS:
     /**
-     * we get addresss aaazzzxxxyyy and use aaa to select one of the RAM512's, 
-     * and use zzz to select the RAM64 in the corresponding RAM512, which in turn
-     * uses the xxx to select the RAM8, which in turn uses the yyy to select the register
+     * we get addresss aaaxxxyyyzzz and use aaa to select one of the RAM512's, 
+     * and use xxx to select the RAM64 in the corresponding RAM512, which in turn
+     * uses the yyy to select the RAM8, which in turn uses the zzz to select the register
      */
 
     // A = 000; B = 001; C = 010; D = 011; E = 100; F = 101; G = 110; H = 111
