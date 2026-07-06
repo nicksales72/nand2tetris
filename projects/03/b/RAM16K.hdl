@@ -9,7 +9,7 @@
  * The value of the selected register is emitted by out.
  */
 CHIP RAM16K {
-    IN in[16], load, address[14];
+    IN in[16], load, address[15];
     OUT out[16];
 
     PARTS:
@@ -23,14 +23,14 @@ CHIP RAM16K {
     // A = 000; B = 001; C = 010; D = 011; E = 100; F = 101; G = 110; H = 111
     DMux8Way(in=load, sel=address[0..2], a=loadA, b=loadB, 
              c=loadC, d=loadD, e=loadE, f=loadF, g=loadG, h=loadH); // loadAddr = load if address = Addr[0..2]; else loadAddr = 0
-    RAM4K(in=in, load=loadA, address=address[3..13], out=ramA); // RAM4K corresponding to aaa = 000
-    RAM4K(in=in, load=loadB, address=address[3..13], out=ramB); // RAM4K corresponding to aaa = 001
-    RAM4K(in=in, load=loadC, address=address[3..13], out=ramC); // RAM4K corresponding to aaa = 010
-    RAM4K(in=in, load=loadD, address=address[3..13], out=ramD); // RAM4K corresponding to aaa = 011
-    RAM4K(in=in, load=loadE, address=address[3..13], out=ramE); // RAM4K corresponding to aaa = 100
-    RAM4K(in=in, load=loadF, address=address[3..13], out=ramF); // RAM4K corresponding to aaa = 101
-    RAM4K(in=in, load=loadG, address=address[3..13], out=ramG); // RAM4K corresponding to aaa = 110
-    RAM4K(in=in, load=loadH, address=address[3..13], out=ramH); // RAM4K corresponding to aaa = 111
+    RAM4K(in=in, load=loadA, address=address[3..14], out=ramA); // RAM4K corresponding to aaa = 000
+    RAM4K(in=in, load=loadB, address=address[3..14], out=ramB); // RAM4K corresponding to aaa = 001
+    RAM4K(in=in, load=loadC, address=address[3..14], out=ramC); // RAM4K corresponding to aaa = 010
+    RAM4K(in=in, load=loadD, address=address[3..14], out=ramD); // RAM4K corresponding to aaa = 011
+    RAM4K(in=in, load=loadE, address=address[3..14], out=ramE); // RAM4K corresponding to aaa = 100
+    RAM4K(in=in, load=loadF, address=address[3..14], out=ramF); // RAM4K corresponding to aaa = 101
+    RAM4K(in=in, load=loadG, address=address[3..14], out=ramG); // RAM4K corresponding to aaa = 110
+    RAM4K(in=in, load=loadH, address=address[3..14], out=ramH); // RAM4K corresponding to aaa = 111
     Mux8Way16(a=ramA, b=ramB, c=ramC, d=ramD, e=ramE, 
             f=ramF, g=ramG, h=ramH, sel=address[0..2], out=out); // send value of the RAM4K at addressaaa to out
 }
