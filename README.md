@@ -1,5 +1,5 @@
 # nand2tetris 
-Projects from the book The Elements of Computing Systems (nand2tetris). 
+Projects from the book The Elements of Computing Systems (nand2tetris). The official website for the course can be found [here](https://www.nand2tetris.org), and the tools to run the code in the `/projects` directory can be found [here](https://www.nand2tetris.org/software).
 
 ### Project 1 (Done)
 - Project 1 is the implementation of basic logic gates in HDL.
@@ -12,5 +12,5 @@ Projects from the book The Elements of Computing Systems (nand2tetris).
 
 ### Project 3 (Current)
 - Project 3 is the implementation of bits, registers, and ram to store data, as well as the program counter.
-- Finished: Bit, Register, RAM8, RAM64, RAM512, RAM4K.
-- Not Finished: PC, RAM16K.
+- Finished: Bit, Register, RAM8, RAM64, RAM512, RAM4K, RAM16K.
+- Not Finished: PC.
