@@ -12,5 +12,4 @@ Projects from the book The Elements of Computing Systems (nand2tetris). The offi
 
 ### Project 3 (Current)
 - Project 3 is the implementation of bits, registers, and ram to store data, as well as the program counter.
-- Finished: Bit, Register, RAM8, RAM64, RAM512, RAM4K, RAM16K.
-- Not Finished: PC.
+- Finished: Bit, Register, RAM8, RAM64, RAM512, RAM4K, RAM16K, PC.
